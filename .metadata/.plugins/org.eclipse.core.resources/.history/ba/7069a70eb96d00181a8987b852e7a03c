@@ -1,0 +1,277 @@
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class PIMCalc {
+	public static void main(String[] args) {
+		
+		double[] gen5_1 = new double[2];
+		double[] gen5_2 = new double[2];
+		double[] gen5_3 = new double[2];
+		double[] gen5_4 = new double[2];
+		double tempPimLow1 = 0;
+		double tempPimHigh1 = 0;
+		double tempPimLow2 = 0;
+		double tempPimHigh2 = 0;
+		double tempPimLow3 = 0;
+		double tempPimHigh3 = 0;
+		double tempPimLow4 = 0;
+		double tempPimHigh4 = 0;
+		
+		gen5_1[0] = 3575;
+		gen5_1[1] = 3600;
+		gen5_2[0] = 3600;
+		gen5_2[1] = 3625;
+		gen5_3[0] = 3525;
+		gen5_3[1] = 3550;
+		gen5_4[0] = 3550;
+		gen5_4[1] = 3575;
+		
+		//5Gen 1
+		ArrayList<Double> PIM1 = new ArrayList<Double>(); 
+		ArrayList<Double> PIM2 = new ArrayList<Double>();
+		ArrayList<Double> PIM3 = new ArrayList<Double>();
+		
+		//5Gen 2
+		ArrayList<Double> PIM5 = new ArrayList<Double>();
+		ArrayList<Double> PIM6 = new ArrayList<Double>();
+		ArrayList<Double> PIM7 = new ArrayList<Double>();
+		
+		//5Gen 3
+		ArrayList<Double> PIM9 = new ArrayList<Double>();
+		ArrayList<Double> PIM10 = new ArrayList<Double>();
+		ArrayList<Double> PIM11 = new ArrayList<Double>();
+		
+		//5Gen 4
+		ArrayList<Double> PIM13 = new ArrayList<Double>();
+		ArrayList<Double> PIM14 = new ArrayList<Double>();
+		ArrayList<Double> PIM15 = new ArrayList<Double>();
+		
+		List<Double> list = new ArrayList<Double>();
+		List<Double> list2 = new ArrayList<Double>();
+		
+		File file = new File("Transmission.txt");
+		File file2 = new File("Receiver.txt");
+		BufferedReader reader = null;
+		BufferedReader reader2 = null;
+		
+		try (FileInputStream fis = new FileInputStream(file)) {
+			reader = new BufferedReader(new FileReader(file));
+			String text = null;
+			
+			while((text = reader.readLine()) != null) {
+				list.add(Double.parseDouble(text));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (reader != null) {
+					reader.close();
+				}
+			} catch (IOException e) {
+				
+			}
+		}
+		
+		try (FileInputStream fis = new FileInputStream(file2)) {
+			reader2 = new BufferedReader(new FileReader(file2));
+			String text2 = null;
+			
+			while((text2 = reader2.readLine()) != null) {
+				list2.add(Double.parseDouble(text2));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (reader2 != null) {
+					reader2.close();
+				}
+			} catch (IOException e) {
+				
+			}
+		}
+		
+		int hits = 0;
+
+		//System.out.println(list);
+		//System.out.println(list2);
+
+		//+ + +
+		for(int i = 0; i < list.size(); i = i+2) {
+			for(int j = i; j < list.size(); j++) {
+				//5Gen 1
+				tempPimLow1 = list.get(i) + list.get(j) + gen5_1[0];
+				tempPimHigh1 = list.get(i+1) + list.get(j+1) + gen5_1[1];
+				//5Gen 2
+				tempPimLow2 = list.get(i) + list.get(j) + gen5_2[0];
+				tempPimHigh2 = list.get(i+1) + list.get(j+1) + gen5_2[1];
+				//5Gen 3
+				tempPimLow3 = list.get(i) + list.get(j) + gen5_3[0];
+				tempPimHigh3 = list.get(i+1) + list.get(j+1) + gen5_3[1];
+				//5Gen 4
+				tempPimLow3 = list.get(i) + list.get(j) + gen5_4[0];
+				tempPimHigh3 = list.get(i+1) + list.get(j+1) + gen5_4[1];
+				PIM1.add(j, tempPimLow1);
+				PIM5.add(j, tempPimLow2);
+				PIM9.add(j, tempPimLow3);
+				PIM13.add(j, tempPimLow4);
+				j++;
+				PIM1.add(j, tempPimHigh1);
+				PIM5.add(j, tempPimHigh2);
+				PIM9.add(j, tempPimHigh3);
+				PIM13.add(j, tempPimHigh4);
+			}
+		}
+		
+		//- + +
+		for(int i = 0; i < list.size(); i = i+2) {
+			for(int j = i; j < list.size(); j++) {
+				//5Gen 1
+				tempPimLow1 = -list.get(i+1) + list.get(j) + gen5_1[0];
+				tempPimHigh1 = -list.get(i) + list.get(j+1) + gen5_1[1];
+				//5Gen 2
+				tempPimLow2 = -list.get(i+1) + list.get(j) + gen5_2[0];
+				tempPimHigh2 = -list.get(i) + list.get(j+1) + gen5_2[1];
+				//5Gen 3
+				tempPimLow3 = -list.get(i+1) + list.get(j) + gen5_3[0];
+				tempPimHigh3 = -list.get(i) + list.get(j+1) + gen5_3[1];
+				//5Gen 4
+				tempPimLow4 = -list.get(i+1) + list.get(j) + gen5_4[0];
+				tempPimHigh4 = -list.get(i) + list.get(j+1) + gen5_4[1];
+				PIM2.add(j, tempPimLow1);
+				PIM6.add(j, tempPimLow2);
+				PIM10.add(j, tempPimLow3);
+				PIM14.add(j, tempPimLow4);
+				j++;
+				PIM2.add(j, tempPimHigh1);
+				PIM6.add(j, tempPimHigh2);
+				PIM10.add(j, tempPimHigh3);
+				PIM14.add(j, tempPimHigh4);
+			}
+		}
+		
+		// - - +
+		for(int i = 0; i < list.size(); i = i+2) {
+			for(int j = i; j < list.size(); j++) {
+				//5Gen 1
+				tempPimLow1 = -list.get(i+1) - list.get(j+1) + gen5_1[0];
+				tempPimHigh1 = -list.get(i) - list.get(j) + gen5_1[1];
+				//5Gen 2
+				tempPimLow2 = -list.get(i+1) - list.get(j+1) + gen5_2[0];
+				tempPimHigh2 = -list.get(i) - list.get(j) + gen5_2[1];
+				//5Gen 3
+				tempPimLow3 = -list.get(i+1) - list.get(j+1) + gen5_3[0];
+				tempPimHigh3 = -list.get(i) - list.get(j) + gen5_3[1];
+				//5Gen 4
+				tempPimLow4 = -list.get(i+1) - list.get(j+1) + gen5_4[0];
+				tempPimHigh4 = -list.get(i) - list.get(j) + gen5_4[1];
+				PIM3.add(j, tempPimLow1);
+				PIM7.add(j, tempPimLow2);
+				PIM11.add(j, tempPimLow3);
+				PIM15.add(j, tempPimLow4);
+				j++;
+				PIM3.add(j, tempPimHigh1);
+				PIM7.add(j, tempPimHigh2);
+				PIM11.add(j, tempPimHigh3);
+				PIM15.add(j, tempPimHigh4);
+			}
+		}
+		
+		System.out.println(PIM1);
+		System.out.println(PIM2);
+		System.out.println(PIM3);
+
+		//System.out.println(PIM5);
+		//System.out.println(PIM6);
+		//System.out.println(PIM7);
+
+		//System.out.println(PIM9);
+		//System.out.println(PIM10);
+		//System.out.println(PIM11);
+
+		//System.out.println(PIM13);
+		//System.out.println(PIM14);
+		//System.out.println(PIM15);
+		/*double[] trans1 = new double[2];
+		double[] trans2 = new double[2];
+		double[] trans3 = new double[2];
+		double[] rcv1 = new double[2];
+		double[] rcv2 = new double[2];
+		double[] rcv3 = new double[2];
+		
+		trans1[0] = 870;
+		trans1[1] = 880;
+		trans2[0] = 890;
+		trans2[1] = 891.5;
+		trans3[0] = 891.5;
+		trans3[1] = 894;
+		rcv1[0] = 825;
+		rcv1[1] = 835;
+		rcv2[0] = 845;
+		rcv2[1] = 846.5;
+		rcv3[0] = 846.5;
+		rcv3[1] = 849;
+		
+		int hits = 0;
+		
+		double[] pim1 = new double[2];
+		double[] pim2 = new double[2];
+		
+		trans1[0] = trans1[0]*2;
+		trans1[1] = trans1[1]*2;
+		pim1[0] = trans1[0] - trans2[1];
+		pim1[1] = trans1[1] - trans2[0];
+		pim2[0] = trans1[0] - trans3[1];
+		pim2[1] = trans1[1] - trans3[0];
+		
+		if(pim1[0] == rcv2[0]) hits++;
+		if(pim1[0] == rcv2[1]) hits++;
+		if(pim1[1] == rcv2[0]) hits++;
+		if(pim1[1] == rcv2[1]) hits++;
+		if(pim1[1] == rcv3[0]) hits++;
+		if(pim1[1] == rcv3[1]) hits++;
+		if(pim1[1] == rcv3[0]) hits++;
+		if(pim1[1] == rcv3[1]) hits++;
+		
+		if(pim2[0] == rcv2[0]) hits++;
+		if(pim2[0] == rcv2[1]) hits++;
+		if(pim2[1] == rcv2[0]) hits++;
+		if(pim2[1] == rcv2[1]) hits++;
+		if(pim2[1] == rcv3[0]) hits++;
+		if(pim2[1] == rcv3[1]) hits++;
+		if(pim2[1] == rcv3[0]) hits++;
+		if(pim2[1] == rcv3[1]) hits++;
+		
+		if(pim1[1] < rcv2[1] && pim1[1] > rcv2[0]) {
+			hits++;
+		}
+		if(pim1[0] > rcv2[0] && pim1[0] < rcv2[1]) {
+			hits++;
+		}
+		if(pim1[1] < rcv3[1] && pim1[1] > rcv3[0]) {
+			hits++;
+		}
+		if(pim1[0] > rcv3[0] && pim1[0] < rcv3[1]) {
+			hits++;
+		}
+		if(pim2[1] < rcv2[1] && pim2[1] > rcv2[0]) {
+			hits++;
+		}
+		if(pim2[0] > rcv2[0] && pim2[0] < rcv2[1]) {
+			hits++;
+		}
+		if(pim2[1] < rcv2[1] && pim2[1] > rcv2[0]) {
+			hits++;
+		}
+		if(pim2[0] > rcv2[0] && pim2[0] < rcv2[1]) {
+			hits++;
+		}
+		
+		System.out.println(hits);
+		*/
+	}
+}

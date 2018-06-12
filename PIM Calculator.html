@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+    <title>formDemo.html</title>
+    <meta charset = "UTF-8" />
+  </head>
+  <script src = "calculatePIM.js"></script>
+  <body>
+    <h1>Testing Calculator</h1>
+		<legend>PIM Calculator</legend>
+		<p>
+          <label for = "">Tx LowRange1 </label>
+          <input type = "number" name = "transLow1" />
+		  <label for = "">Tx HighRange1 </label>
+		  <input type = "number" name = "transHigh1" />
+        </p>
+		<p>
+          <label for = "">Tx LowRange2 </label>
+          <input type = "number" name = "transLow2" />
+		  <label for = "">Tx HighRange2 </label>
+		  <input type = "number" name = "transHigh2" />
+        </p>
+		<p>
+          <label for = "">Tx LowRange3 </label>
+          <input type = "number" name = "transLow3" />
+		  <label for = "">Tx HighRange3 </label>
+		  <input type = "number" name = "transHigh3" />
+        </p>
+        <p>
+          <label for = "">Rx LowRange1 </label>
+          <input type = "number" name = "receiveLow1" />
+		  <label for = "">Rx HighRange1 </label>
+		  <input type = "number" name = "receiveHigh1" />
+        </p>
+		<p>
+          <label for = "">Rx LowRange2 </label>
+          <input type = "number" name = "receiveLow2" />
+		  <label for = "">Rx HighRange2 </label>
+		  <input type = "number" name = "receiveHigh2" />
+        </p>
+		<p>
+          <label for = "">Rx LowRange3 </label>
+          <input type = "number" name = "receiveLow3" />
+		  <label for = "">Rx HighRange3 </label>
+		  <input type = "number" name = "receiveHigh3" />
+        </p>
+		<button onClick = "calculatePIM()">Calculate PIM</button>
+		<p>
+          <label for "output">Number of hits: </label>
+          <output type = "textbox" name = "output" />
+        </p>
+  </body>
+</html>

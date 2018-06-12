@@ -1,0 +1,28 @@
+
+public class PIMCalc {
+	@SuppressWarnings("null")
+	public static void main(String[] args) {		
+		double[] trans1 = null;
+		double[] trans2 = null;
+		double[] trans3 = null;
+		double[] rcv1 = null;
+		double[] rcv2 = null;
+		double[] rcv3 = null;
+		
+		trans1[0] = 870;
+		trans1[1] = 880;
+		trans2[0] = 890;
+		trans2[1] = 891.5;
+		trans3[0] = 891.5;
+		trans3[1] = 894;
+		rcv1[0] = 825;
+		rcv1[1] = 835;
+		rcv2[0] = 845;
+		rcv2[1] = 846.5;
+		rcv3[0] = 846.5;
+		rcv3[1] = 849;
+		
+		System.out.println(trans1);
+		
+	}
+}
