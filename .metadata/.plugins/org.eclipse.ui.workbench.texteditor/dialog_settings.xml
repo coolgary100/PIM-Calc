@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="receiver_5G" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="file3"/>
+			<item value="file2"/>
+			<item value="file"/>
+			<item value="list3"/>
+			<item value="list2"/>
+			<item value="list"/>
+			<item value="&lt;"/>
+			<item value="&gt;"/>
+			<item value="  RX:"/>
+			<item value="[ "/>
+			<item value="RX:"/>
+			<item value="-"/>
+			<item value="TX:"/>
+			<item value="["/>
+			<item value="hits"/>
+		</list>
+		<list key="replacehistory">
+			<item value="receiver_5G"/>
+			<item value="receiver"/>
+			<item value="transmission"/>
+			<item value="rcv_5G"/>
+			<item value="rcv"/>
+			<item value="trans"/>
+			<item value="list2"/>
+			<item value="&lt;="/>
+			<item value="&gt;="/>
+			<item value="] RX:"/>
+			<item value="["/>
+			<item value=" "/>
+			<item value=""/>
+			<item value="hits_5G"/>
+			<item value="pimStream4"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="385" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="523" key="DIALOG_HEIGHT"/>
+		<item value="1481" key="DIALOG_X_ORIGIN"/>
+		<item value="71" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

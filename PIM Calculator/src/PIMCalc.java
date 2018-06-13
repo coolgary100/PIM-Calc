@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PIMCalc {
-	public static void main(String[] args) {
+	public static void calculateHits() {
 		
 		/* 
 		 * Variables for Calculations with minimum one 5G frequency in the 3rd order Intermod Calculations
@@ -950,8 +950,8 @@ public class PIMCalc {
 		for(int i = 0; i < whereTrans1.size(); i++) {
 			transAllStream.println(whereTrans1.get(i));
 		}
-
-		System.out.println(hits);
-		System.out.println(hits_5G);
+		
+		System.out.println("Number of hits for adding in 5G: " + hits);
+		System.out.println("Number of hits for all frequencies: " + hits_5G);
 	}
 }
