@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
 import javax.swing.JTextArea;
+import javax.swing.JProgressBar;
 
 public class PIMCalcGUI {
 
@@ -77,7 +78,7 @@ public class PIMCalcGUI {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(15, 152, 244, 29);
+		btnNewButton_1.setBounds(15, 91, 244, 29);
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Open Hits_5G File");
@@ -91,11 +92,20 @@ public class PIMCalcGUI {
 				}
 			}
 		});
-		btnNewButton_2.setBounds(15, 290, 250, 29);
+		btnNewButton_2.setBounds(15, 152, 250, 29);
 		frame.getContentPane().add(btnNewButton_2);
 		
 		textArea.setBounds(378, 156, 250, 37);
 		frame.getContentPane().add(textArea);
+		
+		JButton button = new JButton("Clear");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textArea.setText("");
+			}
+		});
+		button.setBounds(15, 225, 250, 29);
+		frame.getContentPane().add(button);
 		
 		PrintStream aPrintStream = new PrintStream(new FilteredStream(new ByteArrayOutputStream()));
 		System.setOut(aPrintStream);
@@ -121,5 +131,4 @@ public class PIMCalcGUI {
             textArea.append(aString);
         }
     }
-	
 }

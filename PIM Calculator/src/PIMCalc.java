@@ -469,6 +469,12 @@ public class PIMCalc {
 				for(int k = j; k < trans.size(); k = k+2) {
 					tempPimLow5 = trans.get(i) + trans.get(j) + trans.get(k);
 					tempPimHigh5 = trans.get(i+1) + trans.get(j+1) + trans.get(k+1);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll1.add((double) 0);
+						pimAll1.add((double) 0);
+						pimAllCalc1.add(" ");
+						continue;
+					}
 					pimAll1.add(tempPimLow5);
 					pimAll1.add(tempPimHigh5);
 					pimAllCalc1.add(" + [" + trans.get(i) + " " + trans.get(i+1) + "] + [" 
@@ -484,6 +490,12 @@ public class PIMCalc {
 				for(int k = j; k < trans.size(); k = k+2) {
 					tempPimLow5 = -trans.get(i+1) + trans.get(j) + trans.get(k);
 					tempPimHigh5 = -trans.get(i) + trans.get(j+1) + trans.get(k+1);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll2.add((double) 0);
+						pimAll2.add((double) 0);
+						pimAllCalc2.add(" ");
+						continue;
+					}
 					pimAll2.add(tempPimLow5);
 					pimAll2.add(tempPimHigh5);
 					pimAllCalc2.add(" - [" + trans.get(i) + " " + trans.get(i+1) + "] + [" 
@@ -499,6 +511,12 @@ public class PIMCalc {
 				for(int k = j; k < trans.size(); k = k+2) {
 					tempPimLow5 = -trans.get(i+1) - trans.get(j+1) + trans.get(k);
 					tempPimHigh5 = -trans.get(i) - trans.get(j) + trans.get(k+1);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll3.add((double) 0);
+						pimAll3.add((double) 0);
+						pimAllCalc3.add(" ");
+						continue;
+					}
 					pimAll3.add(tempPimLow5);
 					pimAll3.add(tempPimHigh5);
 					pimAllCalc3.add(" - [" + trans.get(i) + " " + trans.get(i+1) + "] - [" 
@@ -512,8 +530,26 @@ public class PIMCalc {
 		for(int i = 0; i < trans.size(); i = i+2) {
 			for(int j = i; j < trans.size(); j = j+2) {
 				for(int k = j; k < trans.size(); k = k+2) {
+					if(trans.get(i) == trans.get(j)) {
+						pimAll4.add((double) 0);
+						pimAll4.add((double) 0);
+						pimAllCalc4.add(" ");
+						continue;
+					}
+					if(trans.get(j) == trans.get(k)) {
+						pimAll4.add((double) 0);
+						pimAll4.add((double) 0);
+						pimAllCalc4.add(" ");
+						continue;
+					}
 					tempPimLow5 = trans.get(i) - trans.get(j+1) + trans.get(k);
 					tempPimHigh5 = trans.get(i+1) - trans.get(j) + trans.get(k+1);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll4.add((double) 0);
+						pimAll4.add((double) 0);
+						pimAllCalc4.add(" ");
+						continue;
+					}
 					pimAll4.add(tempPimLow5);
 					pimAll4.add(tempPimHigh5);
 					pimAllCalc4.add(" + [" + trans.get(i) + " " + trans.get(i+1) + "] - [" 
@@ -529,6 +565,12 @@ public class PIMCalc {
 				for(int k = j; k < trans.size(); k = k+2) {
 					tempPimLow5 = trans.get(i) - trans.get(j+1) - trans.get(k+1);
 					tempPimHigh5 = trans.get(i+1) - trans.get(j) - trans.get(k);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll5.add((double) 0);
+						pimAll5.add((double) 0);
+						pimAllCalc5.add(" ");
+						continue;
+					}
 					pimAll5.add(tempPimLow5);
 					pimAll5.add(tempPimHigh5);
 					pimAllCalc5.add(" + [" + trans.get(i) + " " + trans.get(i+1) + "] - [" 
@@ -542,8 +584,20 @@ public class PIMCalc {
 		for(int i = 0; i < trans.size(); i = i+2) {
 			for(int j = i; j < trans.size(); j = j+2) {
 				for(int k = j; k < trans.size(); k = k+2) {
+					if(trans.get(i) == trans.get(k)) {
+						pimAll6.add((double) 0);
+						pimAll6.add((double) 0);
+						pimAllCalc6.add(" ");
+						continue;
+					}
 					tempPimLow5 = trans.get(i) + trans.get(j) - trans.get(k+1);
 					tempPimHigh5 = trans.get(i+1) + trans.get(j+1) - trans.get(k);
+					if((trans.get(i) >= 2496 || trans.get(j) >= 2496 || trans.get(k) >= 2496)  && tempPimHigh5 >= 2496) {
+						pimAll6.add((double) 0);
+						pimAll6.add((double) 0);
+						pimAllCalc6.add(" ");
+						continue;
+					}
 					pimAll6.add(tempPimLow5);
 					pimAll6.add(tempPimHigh5);
 					pimAllCalc6.add(" + [" + trans.get(i) + " " + trans.get(i+1) + "] + [" 
@@ -763,7 +817,7 @@ public class PIMCalc {
 		for(int x = 0; x < pimAll1.size(); x = x+2) {
 			for(int q = 0; q < rcv.size(); q = q+2) {
 				//+ + + Pattern hit checks
-				if(pimAll1.get(x+1) <= rcv.get(q+1) && pimAll1.get(x+1) >= rcv.get(q)) {
+				if(pimAll1.get(x+1) < rcv.get(q+1) && pimAll1.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc1.get(x/2) + "[" + pimAll1.get(x) + " " + pimAll1.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
@@ -771,35 +825,54 @@ public class PIMCalc {
 					whereTrans1.add(pimAllCalc1.get(x/2) + "[" + pimAll1.get(x) + " " + pimAll1.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				//  + + Pattern hit checks
-				if(pimAll2.get(x+1) <= rcv.get(q+1) && pimAll2.get(x+1) >= rcv.get(q)) {
+				if(pimAll1.get(x) <= rcv.get(q) && pimAll1.get(x+1) >= rcv.get(q+1))
+				{
+					whereTrans1.add(pimAllCalc1.get(x/2) + "[" + pimAll1.get(x) + " " + pimAll1.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				// - + + Pattern hit checks
+				if(pimAll2.get(x+1) < rcv.get(q+1) && pimAll2.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc2.get(x/2) + "[" + pimAll2.get(x) + " " + pimAll2.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				if(pimAll2.get(x) >= rcv.get(q) && pimAll2.get(x) < rcv.get(q+1)) {
+				if(pimAll2.get(x) > rcv.get(q) && pimAll2.get(x) < rcv.get(q+1)) {
 					whereTrans1.add(pimAllCalc2.get(x/2) + "[" + pimAll2.get(x) + " " + pimAll2.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				//    + Pattern hit checks
-				if(pimAll3.get(x+1) <= rcv.get(q+1) && pimAll3.get(x+1) >= rcv.get(q)) {
+				if(pimAll2.get(x) <= rcv.get(q) && pimAll2.get(x+1) >= rcv.get(q+1))
+				{
+					whereTrans1.add(pimAllCalc2.get(x/2) + "[" + pimAll2.get(x) + " " + pimAll2.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				// - - + Pattern hit checks
+				if(pimAll3.get(x+1) < rcv.get(q+1) && pimAll3.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc3.get(x/2) + "[" + pimAll3.get(x) + " " + pimAll3.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				if(pimAll3.get(x) >= rcv.get(q) && pimAll3.get(x) < rcv.get(q+1)) {
+				if(pimAll3.get(x) > rcv.get(q) && pimAll3.get(x) < rcv.get(q+1)) {
 					whereTrans1.add(pimAllCalc3.get(x/2) + "[" + pimAll3.get(x) + " " + pimAll3.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				//+   +Pattern hit checks
-				if(pimAll4.get(x+1) <= rcv.get(q+1) && pimAll4.get(x+1) >= rcv.get(q)) {
+				if(pimAll3.get(x) <= rcv.get(q) && pimAll3.get(x+1) >= rcv.get(q+1))
+				{
+					whereTrans1.add(pimAllCalc3.get(x/2) + "[" + pimAll3.get(x) + " " + pimAll3.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				//+ - +Pattern hit checks
+				if(pimAll4.get(x+1) < rcv.get(q+1) && pimAll4.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc4.get(x/2) + "[" + pimAll4.get(x) + " " + pimAll4.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				if(pimAll4.get(x) >= rcv.get(q) && pimAll4.get(x) < rcv.get(q+1)) {
+				if(pimAll4.get(x) > rcv.get(q) && pimAll4.get(x) < rcv.get(q+1)) {
 					whereTrans1.add(pimAllCalc4.get(x/2) + "[" + pimAll4.get(x) + " " + pimAll4.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				//+     Pattern hit checks
-				if(pimAll5.get(x+1) <= rcv.get(q+1) && pimAll5.get(x+1) >= rcv.get(q)) {
+				if(pimAll4.get(x) <= rcv.get(q) && pimAll4.get(x+1) >= rcv.get(q+1)) {
+					whereTrans1.add(pimAllCalc4.get(x/2) + "[" + pimAll4.get(x) + " " + pimAll4.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				//+ - - Pattern hit checks
+				if(pimAll5.get(x+1) < rcv.get(q+1) && pimAll5.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc5.get(x/2) + "[" + pimAll5.get(x) + " " + pimAll5.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
@@ -807,12 +880,22 @@ public class PIMCalc {
 					whereTrans1.add(pimAllCalc5.get(x/2) + "[" + pimAll5.get(x) + " " + pimAll5.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				//+ +   Pattern hit checks
-				if(pimAll6.get(x+1) <= rcv.get(q+1) && pimAll6.get(x+1) >= rcv.get(q)) {
+				if(pimAll5.get(x) <= rcv.get(q) && pimAll5.get(x+1) >= rcv.get(q+1))
+				{
+					whereTrans1.add(pimAllCalc5.get(x/2) + "[" + pimAll5.get(x) + " " + pimAll5.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				//+ + - Pattern hit checks
+				if(pimAll6.get(x+1) < rcv.get(q+1) && pimAll6.get(x+1) > rcv.get(q)) {
 					whereTrans1.add(pimAllCalc6.get(x/2) + "[" + pimAll6.get(x) + " " + pimAll6.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
-				if(pimAll6.get(x) >= rcv.get(q) && pimAll6.get(x) < rcv.get(q+1)) {
+				if(pimAll6.get(x) > rcv.get(q) && pimAll6.get(x) < rcv.get(q+1)) {
+					whereTrans1.add(pimAllCalc6.get(x/2) + "[" + pimAll6.get(x) + " " + pimAll6.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
+					hits_5G++;
+				}
+				if(pimAll6.get(x) <= rcv.get(q) && pimAll6.get(x+1) >= rcv.get(q+1))
+				{
 					whereTrans1.add(pimAllCalc6.get(x/2) + "[" + pimAll6.get(x) + " " + pimAll6.get(x+1) + "] RX: " + rcv.get(q) + " " + rcv.get(q+1));
 					hits_5G++;
 				}
